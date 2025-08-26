@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
  
 int main() {
     // variaveis do carta1
@@ -128,110 +129,227 @@ int main() {
 
     
     // comparação
-    int vitoria;
-    int opcao;
+    int vitoria1;
+    int opcao1;
     printf("\nSelecione qual atributo comparar:\n");
     printf("1- População\n");
     printf("2- Area\n");
     printf("3- PIB\n");
     printf("4- Pontos turísticos\n");
     printf("5- Densidade demográfica\n");
-    scanf("%d", &opcao);
+    scanf("%d", &opcao1);
     
 
-  switch (opcao) {
+  switch (opcao1) {
     case 1: 
      if (populacao1 > populacao2){
-        vitoria = 1;
+        vitoria1 = 1;
      } else if (populacao1 < populacao2) {
-        vitoria = 2;
+        vitoria1 = 2;
      } else
      {
-        vitoria = 0;
+        vitoria1 = 0;
      }
     break;
     
     case 2: 
      if (area1 > area2){        
-        vitoria = 1;
+        vitoria1 = 1;
      } else if (area1 < area2) {
-        vitoria = 2;
+        vitoria1 = 2;
      } else
      {
-        vitoria = 0;
+        vitoria1 = 0;
      } 
     break;
     
     case 3: 
      if (PIB1 > PIB2){
-        vitoria = 1;
+        vitoria1 = 1;
      } else if (PIB1 < PIB2) {
-        vitoria = 2;
+        vitoria1 = 2;
      } else
      {
-        vitoria = 0;
+        vitoria1 = 0;
      }
     break;
     
     case 4: 
      if (turistico1 > turistico2){
-        vitoria = 1;
+        vitoria1 = 1;
      } else if (turistico1 < turistico2) {
-        vitoria = 2;
+        vitoria1 = 2;
      } else
      {
-        vitoria = 0;
+        vitoria1 = 0;
      } 
     break;
 
     case 5: 
-     if (densidade1 > densidade2){
-        vitoria = 1;
-     } else if (densidade1 < densidade2) {
-        vitoria = 2;
+     if (densidade1 < densidade2){
+        vitoria1 = 1;
+     } else if (densidade2 < densidade1) {
+        vitoria1 = 2;
      } else
      {
-        vitoria = 0;
+        vitoria1 = 0;
      }
     break;
-    default:
+    default: ("printf: selecione uma opção válida\n");
+    }
+    
+    
+    int vitoria2;
+    int opcao2;
+    printf("\nSelecione qual atributo comparar:\n");
+    printf("1- População\n");
+    printf("2- Area\n");
+    printf("3- PIB\n");
+    printf("4- Pontos turísticos\n");
+    printf("5- Densidade demográfica\n");
+    scanf("%d", &opcao2);
+    
+    
+
+   if (opcao2 == opcao1) {
+        printf("\nVocê já selecionou este atributo! Escolha outro.\n");
+      exit(0);
+      } 
+    
+
+    switch (opcao2) {
+    case 1: 
+     if (populacao1 > populacao2){
+        vitoria2 = 1;
+     } else if (populacao1 < populacao2) {
+        vitoria2 = 2;
+     } else 
+     {
+       vitoria2 = 0;
+     }
+     break;
+
+     case 2: 
+     if (area1 > area2){
+        vitoria2 = 1;
+     } else if (area1 < area2) {
+        vitoria2 = 2;
+     } else 
+     {
+       vitoria2 = 0;
+     }
+     break;
+
+     case 3: 
+     if (PIB1 > PIB2){
+        vitoria2 = 1;
+     } else if (PIB1 < PIB2) {
+        vitoria2 = 2;
+     } else 
+     {
+       vitoria2 = 0;
+     }
+     break;
+     
+     case 4: 
+     if (turistico1 > turistico2){
+        vitoria2 = 1;
+     } else if (turistico1 < turistico2) {
+        vitoria2 = 2;
+     } else 
+     {
+       vitoria2 = 0;
+     }
+     break;
+
+     case 5: 
+     if (densidade1 > densidade2){
+        vitoria2 = 1;
+     } else if (densidade1 < densidade2) {
+        vitoria2 = 2;
+     } else 
+     {
+       vitoria2 = 0;
+     }
+     break;
+    default: printf: ("selecione uma opção válida\n");
     }
 
 
-    // resultado
+
+    // resultado 1 atributi
     printf("Cidades: %s e %s\n", nome1, nome2);
-    if (opcao == 1)
+    printf("comparação do primeiro atributo\n");
+    if (opcao1 == 1)
     {
       printf("População Carta 1: %d\n", populacao1);
-      printf("Populaçãp Carta 2 %d\n", populacao2);
-    } else if (opcao == 2)
+      printf("População Carta 2 %d\n", populacao2);
+    } else if (opcao1 == 2)
     {
       printf("Area da Carta 1: %.2f\n", area1);
       printf("Area da Carta 2 %.2f\n", area2);
-    } else if (opcao == 3)
+    } else if (opcao1 == 3)
     {
       printf("PIB da Carta 1: %.2f\n", PIB1);
       printf("PIB da Carta 2: %.2f\n", PIB2);
-    } else if (opcao == 4)
+    } else if (opcao1 == 4)
     {
       printf("Pontos turisticos da Carta 1: %d\n", turistico1);
       printf("Pontos turisticos da Carta 2: %d\n", turistico2);
-    } else if (opcao == 5)
+    } else if (opcao1 == 5)
     {
       printf("Densidade da Carta 1: %.2f\n", densidade1);
       printf("Densidade da Carta 2: %.2f\n", densidade2);
     }
-    if (vitoria == 1)
+    
+    // resultado 2 atributo
+    printf("Cidades: %s e %s\n", nome1, nome2);
+    printf("Comparação do segundo atributo\n");
+    if (opcao2 == 1)
     {
-        printf("Carta 1 venceu!");
-    } else if (vitoria == 2)
+      printf("População Carta 1: %d\n", populacao1);
+      printf("Populaçãp Carta 2 %d\n", populacao2);
+    } else if (opcao2 == 2)
     {
-        printf("Carta 2 venceu!");
-    } else if (vitoria == 0)
+      printf("Area da Carta 1: %.2f\n", area1);
+      printf("Area da Carta 2 %.2f\n", area2);
+    } else if (opcao2 == 3)
     {
-        printf("Empate!");
+      printf("PIB da Carta 1: %.2f\n", PIB1);
+      printf("PIB da Carta 2: %.2f\n", PIB2);
+    } else if (opcao2 == 4)
+    {
+      printf("Pontos turisticos da Carta 1: %d\n", turistico1);
+      printf("Pontos turisticos da Carta 2: %d\n", turistico2);
+    } else if (opcao2 == 5)
+    {
+      printf("Densidade da Carta 1: %.2f\n", densidade1);
+      printf("Densidade da Carta 2: %.2f\n", densidade2);
     }
-        
+    
+    // resultado das comparações
+    int pontos1 = 0, pontos2 = 0;
+
+   if (vitoria1 == 1) pontos1++;
+else if (vitoria1 == 2) pontos2++;
+
+if (vitoria2 == 1) pontos1++;
+else if (vitoria2 == 2) pontos2++;
+
+if (pontos1 > pontos2)
+{
+  printf("\nCarta 1 venceu!\n");
+} else if (pontos1 < pontos2)
+{
+   printf("\nCarta 2 venceu!\n");
+} else
+{
+   printf("\nhouve um empate!\n");
+}
+
+
+
+
    return 0; 
 
 
